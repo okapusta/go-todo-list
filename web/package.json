@@ -1,0 +1,20 @@
+{
+  "name": "go-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js",
+    "build": "./node_modules/.bin/webpack --config webpack.config.dev.js",
+    "build:production": "./node_modules/.bin/webpack --config webpack.config.production.js",
+    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.production.js"
+  },
+  "keywords": [],
+  "author": "okapusta",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
