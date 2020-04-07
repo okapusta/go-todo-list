@@ -10,7 +10,7 @@ type todo struct {
 	Completed bool   `json:"completed"`
 }
 
-func GetTodos(db *sql.DB) ([]todo, error) {
+func getTodos(db *sql.DB) ([]todo, error) {
 	rows, err := db.Query("SELECT id, content, completed FROM todos")
 	if err != nil {
 		return nil, err

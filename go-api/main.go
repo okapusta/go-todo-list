@@ -2,32 +2,16 @@ package api
 
 import (
 	"database/sql"
-	"encoding/json"
-	// "fmt"
 	"log"
 	http "net/http"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
-	model "github.com/okapusta/go-todo-list/go-api/model"
 )
 
 type GoApi struct {
 	DB     *sql.DB
 	Router *mux.Router
-}
-
-func (api *GoApi) todosHandler(w http.ResponseWriter, r *http.Request) {
-	todos, err := model.GetTodos(api.DB)
-	if err != nil {
-		log.Fatal("Failed to get todos", err)
-	}
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(todos); err != nil {
-		log.Fatal("Failed to encode todos", err)
-	}
 }
 
 func (api *GoApi) Initialize() {
